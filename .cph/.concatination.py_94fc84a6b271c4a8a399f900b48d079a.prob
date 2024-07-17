@@ -1,0 +1,1 @@
+{"name":"Local: concatination","url":"c:\\Users\\hp\\competitive_programming\\concatination.py","tests":[{"id":1721217403039,"input":"1 2 1","output":"[1 2 1 1 2 1]"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\hp\\competitive_programming\\concatination.py","group":"local","local":true}
