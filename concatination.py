@@ -1,3 +1,4 @@
-nums = list(map(int, input().split()))
-nums = nums * 2
-print(nums)
+class Solution:
+    def getConcatenation(self, nums: List[int]) -> List[int]:
+        nums = nums * 2
+        return nums
