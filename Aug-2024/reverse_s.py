@@ -1,3 +1,7 @@
-s = list(map(int,input().split()))
-s.reverse()
-print(s)
+class Solution:
+    def reverseString(self, s: List[str]) -> None:
+        """
+        Do not return anything, modify s in-place instead.
+        """
+        s.reverse()
+        
