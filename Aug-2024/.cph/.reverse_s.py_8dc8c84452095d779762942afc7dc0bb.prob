@@ -1,0 +1,1 @@
+{"name":"Local: reverse_s","url":"c:\\Users\\hp\\competitive_programming\\Aug-2024\\reverse_s.py","tests":[{"id":1723484688328,"input":"1 2 3 4 5","output":"[5, 4, 3, 2, 1]"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\hp\\competitive_programming\\Aug-2024\\reverse_s.py","group":"local","local":true}
