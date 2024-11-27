@@ -4,14 +4,14 @@ class MyQueue:
         self.stack = []
 
     def push(self, x: int) -> None:
-        self.stack.append(x)
+        self.stack = [x] + self.stack
 
     def pop(self) -> int:
         if self.stack:
-            return self.stack.pop(0)
+            return self.stack.pop()
     def peek(self) -> int:
         if self.stack:
-            return self.stack[0]
+            return self.stack[-1]
 
     def empty(self) -> bool:
         return True if not self.stack else False
