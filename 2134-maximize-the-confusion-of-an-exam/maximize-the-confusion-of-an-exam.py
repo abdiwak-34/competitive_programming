@@ -1,16 +1,13 @@
 class Solution:
     def maxConsecutiveAnswers(self, answerKey: str, k: int) -> int:
-        def max_cons(chr):
-            flip = 0
-            max_conf = 0
-            left = 0
-            for i in range(len(answerKey)):
-                if answerKey[i] != chr:
-                    flip += 1
-                while flip > k:
-                    if answerKey[left] != chr:
-                        flip -= 1
-                    left += 1
-                max_conf = max(max_conf, i-left+1)
-            return max_conf
-        return max(max_cons('T'), max_cons('F'))
+        no_true = left = no_false = ans = 0
+        for i in range(len(answerKey)):
+            if answerKey[i] == 'T':
+                no_true += 1
+            no_false = (i-left+1) - no_true
+            if (no_true >= no_false and no_false <= k) or (no_false > no_true and no_true <= k):               ans = max(ans, no_true + no_false)
+            else:
+                if answerKey[left] == "T":
+                    no_true -= 1
+                left += 1
+        return ans
