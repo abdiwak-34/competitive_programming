@@ -1,5 +1,7 @@
 class Solution:
     def isSubsequence(self, s: str, t: str) -> bool:
+        if len(t) < len(s):
+            return False
         ptr1 = ptr2 = 0
         while ptr1 < len(s) and ptr2 < len(t):
             if s[ptr1] == t[ptr2]:
