@@ -1,10 +1,9 @@
 class Solution:
     def isSubsequence(self, s: str, t: str) -> bool:
-        left = count = 0
-        for i in range(len(s)):
-            while left < len(t) and s[i] != t[left]:
-                left += 1
-            if left< len(t) and s[i] == t[left]:
-                left += 1
-                count += 1
-        return count == len(s)
+        ptr1 = ptr2 = 0
+        while ptr1 < len(s) and ptr2 < len(t):
+            if s[ptr1] == t[ptr2]:
+                ptr1 += 1
+            ptr2 += 1
+            
+        return ptr1 == len(s)
