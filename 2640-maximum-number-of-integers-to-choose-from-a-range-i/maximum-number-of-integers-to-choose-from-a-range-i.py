@@ -9,6 +9,4 @@ class Solution:
             elif i not in ban:
                 perm.append(i)
         ans = bisect_left(perm,maxSum+1)
-        banned.sort()
-        print(banned)
         return ans
