@@ -1,14 +1,14 @@
+from bisect import bisect_left
 class Solution:
     def maxCount(self, banned: List[int], n: int, maxSum: int) -> int:
         ban = set(banned)
         perm = []
         for i in range(1,n+1):
-            if i not in ban:
+            if perm and i not in ban:
+                perm.append(perm[-1]+i)
+            elif i not in ban:
                 perm.append(i)
-        ans = ptr = 0
-        while ptr < len(perm):
-            if ans + perm[ptr] > maxSum:
-                return ptr
-            ans += perm[ptr]
-            ptr += 1
-        return ptr
+        ans = bisect_left(perm,maxSum+1)
+        banned.sort()
+        print(banned)
+        return ans
