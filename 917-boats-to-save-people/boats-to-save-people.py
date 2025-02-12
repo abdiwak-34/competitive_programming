@@ -1,18 +1,14 @@
 class Solution:
     def numRescueBoats(self, people: List[int], limit: int) -> int:
         people.sort()
-        left, right = 0, len(people) - 1
+        left, right = 0, len(people)-1
         count = 0
         while left <= right:
-            if left == right:
-                count += 1
+            current_weight = people[left] + people[right]
+            if current_weight <= limit:
                 left += 1
+                right -= 1
+            else:
                 right -=1
-            elif people[right] + people[left] <= limit:
-                count += 1
-                left += 1
-                right -= 1
-            elif people[right] <= limit:
-                count += 1
-                right -= 1
+            count += 1
         return count
