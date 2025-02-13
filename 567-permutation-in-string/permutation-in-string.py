@@ -1,16 +1,16 @@
 class Solution:
     def checkInclusion(self, s1: str, s2: str) -> bool:
-        s1_count = Counter(s1)
-        n = len(s1)
-        s2_count = {}
-        left = 0
-        for i in range(len(s2)):
-            s2_count[s2[i]] = s2_count.get(s2[i], 0) + 1
-            if i - left + 1 > n:
-                s2_count[s2[left]] -= 1
-                if s2_count[s2[left]] == 0:
-                    s2_count.pop(s2[left])
-                left += 1
-            if s2_count == s1_count:
+        def is_permutation(dic1,dic2):
+            for key in dic2:
+                if dic1[key] != dic2[key]:
+                    return False
+            return True
+        k = len(s1)
+        count_s2 = Counter(s2[:k-1])
+        count_s1 = Counter(s1)
+        for i in range(k,len(s2)+1):
+            count_s2[s2[i-1]] += 1
+            if is_permutation(count_s2,count_s1):
                 return True
+            count_s2[s2[i-k]] -= 1
         return False
