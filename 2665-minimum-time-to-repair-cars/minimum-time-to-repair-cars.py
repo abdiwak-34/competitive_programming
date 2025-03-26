@@ -6,7 +6,7 @@ class Solution:
                 no_cars += int(sqrt(time/r))
             return no_cars >= cars
         
-        left, right = 0, (cars**2) * max(ranks)
+        left, right = 0, (cars**2) * min(ranks)
         best = right
         while left <= right:
             mid = (left+right)//2
