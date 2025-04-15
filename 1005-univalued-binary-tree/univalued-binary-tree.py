@@ -5,19 +5,16 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def isUnivalTree(self, root: Optional[TreeNode]) -> bool:
-        def bfs(node):
-            uni = node.val
-            queue = deque([node])
-            while queue:
-                for nodes in range(len(queue)):
-                    current = queue.popleft()
-                    if current.val != uni:
-                        return False
-                    if current.left:
-                        queue.append(current.left)
-                    if current.right:
-                        queue.append(current.right)
-            return True
-        return bfs(root)
-                
+    def isUnivalTree(self, node: Optional[TreeNode]) -> bool:
+        uni = node.val
+        queue = deque([node])
+        while queue:
+            for nodes in range(len(queue)):
+                current = queue.popleft()
+                if current.val != uni:
+                    return False
+                if current.left:
+                    queue.append(current.left)
+                if current.right:
+                    queue.append(current.right)
+        return True
