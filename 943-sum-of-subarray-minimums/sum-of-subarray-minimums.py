@@ -1,6 +1,5 @@
 class Solution:
     def sumSubarrayMins(self, arr: List[int]) -> int:
-        MOD = 10**9 + 7
         stack, result = [], 0
         arr = [0] + arr + [0]
 
@@ -12,4 +11,4 @@ class Solution:
                 result += arr[mid] * left * right
             stack.append(i)
 
-        return result % MOD
+        return result % (10**9 + 7)
