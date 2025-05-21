@@ -3,15 +3,18 @@ class Solution:
         """
         Do not return anything, modify matrix in-place instead.
         """
+        place  = []
         n, m = len(matrix), len(matrix[0])
-        query = []
         for i in range(n):
             for j in range(m):
                 if matrix[i][j] == 0:
-                    query.append([i,j])
-        for quer in query:
-            i, j = quer
+                    place.append((i,j))
+        
+        for x, y in place:
+            for k in range(m):
+                matrix[x][k] = 0
+        
+        for x, y in place:
             for k in range(n):
-                matrix[k][j] = 0
-            for l in range(m):
-                matrix[i][l] = 0
+                matrix[k][y] = 0
+        
