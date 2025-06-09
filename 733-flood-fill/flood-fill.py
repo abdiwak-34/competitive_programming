@@ -1,21 +1,23 @@
 class Solution:
     def floodFill(self, image: List[List[int]], sr: int, sc: int, color: int) -> List[List[int]]:
         n, m = len(image), len(image[0])
-
-        def inbound(row, col):
-            return 0 <= row < n and 0 <= col < m
-
-        queue = deque([(sr, sc)])
-        b_color = image[sr][sc]
-        if b_color == color:
-            return image
-        dirn = [(-1,0),(0,-1),(0,1),(1,0)]
+        orginal = image[sr][sc]
+        def inbound(r, c):
+            return 0 <= r < n and 0 <= c < m
         
-        while queue:
-            r,c = queue.popleft()
+        visted = [[False] * m for _ in range(n)]
+
+        def dfs(r,c):
+            dirn = [(-1,0),(0,-1),(0,1),(1,0)]
+
+            if not inbound(r,c) or visted[r][c] or image[r][c] != orginal:
+                return
+            visted[r][c] = True
             image[r][c] = color
-            for nr, nc in dirn:
-                if inbound(r+nr, c+nc) and image[r+nr][c+nc] == b_color:
-                    queue.append((r+nr,c+nc))
-                
+            for dr,dc in dirn:
+                dfs(r+dr, c+dc)
+        
+        dfs(sr,sc)
+
         return image
+                
