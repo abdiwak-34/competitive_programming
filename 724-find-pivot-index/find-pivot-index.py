@@ -3,8 +3,7 @@ class Solution:
         sums = sum(nums)
         presum = 0
         for i in range(len(nums)):
-            if presum * 2 + nums[i] == sums:
+            if presum == sums - presum- nums[i]:
                 return i
             presum += nums[i]
-
         return -1
